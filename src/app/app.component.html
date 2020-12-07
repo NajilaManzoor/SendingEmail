@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="toEmailId">To:</label>
                     <input type="email" class="form-control" id="toEmailId" aria-describedby="emailHelp" formControlName="toEmail" [ngClass]="{ 'error-control-field': (emailForm.get('toEmail').invalid && (emailForm.get('toEmail').dirty || emailForm.get('toEmail').touched)) }" >
-                  </div>
+                  </div>   
                   <div class="form-group">
                     <label for="subjectId">Subject</label>
                     <input type="text" class="form-control" id="subjectId"  formControlName="subjectText" [ngClass]="{ 'error-control-field': (emailForm.get('subjectText').invalid && (emailForm.get('subjectText').dirty || emailForm.get('subjectText').touched)) }">
