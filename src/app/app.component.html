@@ -1,0 +1,39 @@
+<div class="sendemail-container">
+    <div id="sendEmailPopup" class="email-popup modal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Send New Email</h4>
+            </div>
+            <form  [formGroup]="emailForm" #ngForm="ngForm" (ngSubmit)="SendNewEmail()" class="display-table-100 email-form">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="toEmailId">To:</label>
+                    <input type="email" class="form-control" id="toEmailId" aria-describedby="emailHelp" formControlName="toEmail" [ngClass]="{ 'error-control-field': (emailForm.get('toEmail').invalid && (emailForm.get('toEmail').dirty || emailForm.get('toEmail').touched)) }" >
+                  </div>
+                  <div class="form-group">
+                    <label for="subjectId">Subject</label>
+                    <input type="text" class="form-control" id="subjectId"  formControlName="subjectText" [ngClass]="{ 'error-control-field': (emailForm.get('subjectText').invalid && (emailForm.get('subjectText').dirty || emailForm.get('subjectText').touched)) }">
+                  </div>
+                  <div class="form-group">
+                    <label for="messageId">Message:</label>
+                    <input type="text" class="form-control" id="messageId"  formControlName="messageText" [ngClass]="{ 'error-control-field': (emailForm.get('messageText').invalid && (emailForm.get('messageText').dirty || emailForm.get('messageText').touched)) }">
+                  </div>
+                  <div class="loader-container" *ngIf="isSendingEmail">
+                    <div class="loader"></div>
+                  </div>
+                  <div class="gif-container">
+                    <img src="assets/images/email_sent.gif" alt="Email sent gif"  *ngIf="isEmailSent">
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default mr-auto send-btn" [disabled]="!emailForm.valid">Send<span class="material-icons">send</span></button>
+                <button type="button" class="btn btn-primary reset-btn" data-dismiss="modal">Reset<span class="material-icons" (click)="ResetEmailForm()">delete</span></button>
+            </div>
+            </form>
+          </div>
+      
+        </div>
+      </div>
+</div>
